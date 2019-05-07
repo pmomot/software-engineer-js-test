@@ -1,13 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Helvetica, Verdana, sans-serif;
   line-height: 1.5em;
   height: 100%;
-}
-
-#imageContainer,
-#debugContainer {
-  padding: 1em;
-  box-sizing: border-box;
 }
 
 .column {
@@ -15,18 +13,25 @@ body {
   margin: .5%;
   border: 1px solid #000;
   vertical-align: top;
+  padding: 1em;
 
   &.left {
     float: left;
   }
   &.right {
     float: right;
+    overflow-x: auto;
   }
 }
 
 #imageContainer {
+  margin-bottom: 0;
+  overflow: hidden;
+
   img {
     width: 100%;
+    display: block;
+    position: relative;
   }
 }
 
@@ -34,5 +39,32 @@ body {
   p {
     margin: 0;
     padding: 0;
+  }
+}
+
+#generateButton {
+  display: none;
+}
+
+.buttons {
+  display: none;
+  padding: 1em;
+
+  .button {
+    margin-left: 1em;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+body.image-loaded {
+  .buttons {
+    display: flex;
+  }
+
+  #generateButton {
+    display: inline-block;
   }
 }

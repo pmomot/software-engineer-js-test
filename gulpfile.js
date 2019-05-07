@@ -93,7 +93,7 @@ gulp.task('js', () => {
         })
         .pipe(source('app/js/main.js'))
         .pipe(gulp.dest(OUTPUT_PATH))
-                //notify browserSync to refresh
+        //notify browserSync to refresh
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -104,7 +104,8 @@ gulp.task('browserify', function () {
         cache: {},
         packageCache: {},
         fullPaths: true
-    });
+    })
+        .transform('babelify', {presets: ['@babel/env']});
 });
 
 
